@@ -2,6 +2,7 @@
 
 This document explains the architecture, flow, and endpoints used by TikTok to handle user profile covers (banners) based on internal API handlers and reverse-engineered client logic.
 You need a Singer to use these API endpoints.
+* If you are able to get a script working to set a banner on a TikTok profile please submit it as PR and it will be accepted.
 
 ---
 
