@@ -8,10 +8,10 @@ You need a Singer to use these API endpoints.
 
 ## Architecture & Message Handling
 
-In the TikTok Android client, profile synchronization and state management are handled by the core handler class `C0OWJ`[cite: 1].
+In the TikTok Android client, profile synchronization and state management are handled by the core handler class `C0OWJ`.
 
-* **Message Type `10`**: When the client receives a profile update event, action code `10` specifically designates **Profile Cover / Banner** updates[cite: 1].
-* **Response Processing**: Upon receiving a response, the client processes `UserResponse` and extracts cover image locations using `user.getCoverUrls()`[cite: 1].
+* **Message Type `10`**: When the client receives a profile update event, action code `10` specifically designates **Profile Cover / Banner** updates.
+* **Response Processing**: Upon receiving a response, the client processes `UserResponse` and extracts cover image locations using `user.getCoverUrls()`.
 
 ---
 
@@ -28,16 +28,16 @@ Raw image files cannot be directly attached in a single profile commit request. 
 ### 2. Profile Commit Phase
 Once the `cover_uri` is generated, the user's profile state must be updated to reference the new asset.
 
-* **Endpoint**: The primary update route is `/aweme/v1/commit/user/`[cite: 1].
-* **Parameters**: The request maps key-value parameters including the newly acquired `cover_uri` and context metadata such as `page_from`[cite: 1].
-* **Result**: The server updates the user's record and links the cover image to the profile[cite: 1].
+* **Endpoint**: The primary update route is `/aweme/v1/commit/user/`.
+* **Parameters**: The request maps key-value parameters including the newly acquired `cover_uri` and context metadata such as `page_from`.
+* **Result**: The server updates the user's record and links the cover image to the profile.
 
 ---
 
 ## API Variations: Mobile vs. Web
 
 ### Mobile API (`api-va.tiktokv.com`)
-* Primary mobile endpoint defined in internal app presenters (`C351010DpN`)[cite: 1].
+* Primary mobile endpoint defined in internal app presenters (`C351010DpN`).
 * Protected by proprietary client-side signature headers (`X-Gorgon`, `X-Khronos`, `X-MS-STUB`).
 * Unsigned HTTP requests sent to these endpoints are rejected by the server (e.g., `status_code: 7`, `Permission Denied`).
 
